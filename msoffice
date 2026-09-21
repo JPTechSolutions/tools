@@ -1,7 +1,5 @@
 
 
-# Having trouble launching this script? Check https://massgrave.dev for help.
-
 if (-not $args) {
     Write-Host
     Write-Host 'Need help? Check our homepage: ' -NoNewline
