@@ -118,7 +118,7 @@ exit /b
 
 cls
 color 07
-title  Microsoft_Activation_Scripts %masver%
+title  Lifetime License by JP Tech Solutions %masver%
 
 set _args=
 set _elev=
@@ -427,7 +427,7 @@ goto dk_done
 
 cls
 color 07
-title  Microsoft %blank%Activation %blank%Scripts %masver%
+title  Lifetime %blank%License %blank%by %blank%JP %blank%Tech %blank%Solutions %blank% %masver%
 if not defined terminal mode 76, 34
 
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" set _serexist=1
