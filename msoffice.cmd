@@ -465,39 +465,38 @@ echo:               Lifetime License Station by JP Tech Solutions
 echo:
 
 if defined _tsforgego (
-call :dk_color3 %_White% "             [3] " %_Green% "TSforge" %_White% "             - Windows / Office / ESU"
+call :dk_color3 %_White% "             [3] " %_Green% "Lifetime License" %_White% "             - Windows / Microsoft Office "
 ) else (
-echo:             [3] TSforge             - Windows / Office / ESU
+echo:             [1] Lifetime License             - Windows / Microsoft Office 
 )
-echo:             [4] Online KMS          - Windows / Office
+echo:             [2] Subscription based License           - Windows / Microsoft Office
 echo:             __________________________________________________ 
 echo:
-echo:             [5] Check Activation Status
-echo:             [6] Change Windows Edition
-echo:             [7] Change Office Edition
+echo:             [3] Check Activation Status
+echo:             [4] Change Windows Edition
+echo:             [5] Change Office Edition
 echo:             __________________________________________________      
 echo:
-echo:             [8] Troubleshoot
+echo:             [6] Troubleshoot
 echo:             [E] Extras
 echo:             [H] Help
 echo:             [0] Exit
 echo:       ______________________________________________________________
 echo:
 call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1,2,3...E,H,0] :"
-choice /C:12345678EH0 /N
+choice /C:123456EH0 /N
 set _erl=%errorlevel%
 
-if %_erl%==11 exit /b
-if %_erl%==10 (start %selfgit% & start %github% & start %mas%troubleshoot & goto :MainMenu)
-if %_erl%==9 goto :Extras
-if %_erl%==8 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
-if %_erl%==7 setlocal & call :change_offedition & cls & endlocal & goto :MainMenu
-if %_erl%==6 setlocal & call :change_winedition & cls & endlocal & goto :MainMenu
-if %_erl%==5 setlocal & call :check_actstatus   & cls & endlocal & goto :MainMenu
-if %_erl%==4 setlocal & call :KMSActivation     & cls & endlocal & goto :MainMenu
-if %_erl%==3 setlocal & call :TSforgeActivation & cls & endlocal & goto :MainMenu
-if %_erl%==2 setlocal & call :OhookActivation   & cls & endlocal & goto :MainMenu
-if %_erl%==1 setlocal & call :HWIDActivation    & cls & endlocal & goto :MainMenu
+if %_erl%==9 exit /b
+if %_erl%==8 (start %selfgit% & start %github% & start %mas%troubleshoot & goto :MainMenu)
+if %_erl%==7 goto :Extras
+if %_erl%==6 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
+if %_erl%==5 setlocal & call :change_offedition & cls & endlocal & goto :MainMenu
+if %_erl%==4 setlocal & call :change_winedition & cls & endlocal & goto :MainMenu
+if %_erl%==3 setlocal & call :check_actstatus   & cls & endlocal & goto :MainMenu
+if %_erl%==2 setlocal & call :KMSActivation     & cls & endlocal & goto :MainMenu
+if %_erl%==1 setlocal & call :TSforgeActivation & cls & endlocal & goto :MainMenu
+
 goto :MainMenu
 
 :dk_color3
