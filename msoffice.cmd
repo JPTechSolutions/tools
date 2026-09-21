@@ -465,11 +465,11 @@ echo:               Lifetime License Station by JP Tech Solutions
 echo:
 
 if defined _tsforgego (
-call :dk_color3 %_White% "             [3] " %_Green% "Lifetime License" %_White% "             - Windows / Microsoft Office "
+call :dk_color3 %_White% "             [3] " %_Green% "Lifetime License" %_White% " - Windows / Microsoft Office "
 ) else (
-echo:             [1] Lifetime License             - Windows / Microsoft Office 
+echo:             [1] Lifetime License - Windows / Microsoft Office 
 )
-echo:             [2] Subscription based License           - Windows / Microsoft Office
+echo:             [2] Subscription based License - Windows / Microsoft Office
 echo:             __________________________________________________ 
 echo:
 echo:             [3] Check Activation Status
@@ -975,7 +975,7 @@ call :dk_act
 call :dk_checkperm
 if defined _perm (
 echo:
-call :dk_color %Green% "%winos% is permanently activated with a digital license."
+call :dk_color %Green% "%winos% Lifetime License is activated with a digital license."
 goto :dl_final
 )
 
@@ -4313,7 +4313,7 @@ set "_debug=0"
 cls
 color 07
 set KS=K%blank%MS
-title  TSforge Activation %masver%
+title  Lifetime License Activation %masver%
 
 set _args=
 set _elev=
@@ -4361,18 +4361,16 @@ goto dk_done
 if %_unattended%==0 (
 cls
 if not defined terminal mode 76, 33
-title  TSforge Activation %masver%
+title  Lifetime License Activation %masver%
 
 echo:
 echo:
 echo:
 echo        ______________________________________________________________
 echo: 
-echo               [1] Activate - Windows
-echo               [2] Activate - ESU
-echo               [3] Activate - Office [All]
-echo               [4] Activate - Office [Project/Visio]
-echo               [5] Activate - All
+echo               [1] Lifetime License for Windows Operating System
+echo               [2] Lifetime License for Microsoft Office [All]
+echo               [3] Lifetime Licesnse for both Microsoft Office and Windows Operating System
 echo               _______________________________________________  
 echo: 
 echo                   Advanced Options:
@@ -4395,22 +4393,20 @@ echo               [0] %_exitmsg%
 echo        ______________________________________________________________
 echo:
 call :dk_color2 %_White% "            " %_Green% "Choose a menu option using your keyboard..."
-choice /C:12345ABCDEF670 /N
+choice /C:123ABCDEF670 /N
 set _el=!errorlevel!
 
-if !_el!==14 exit /b
-if !_el!==13 start %mas%genuine-installation-media & goto :ts_menu
-if !_el!==12 call :ts_remove & cls & goto :ts_menu
-if !_el!==11 goto :ts_changemethod
-if !_el!==10 cls & setlocal & set "_resall=1"       & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==9  cls & setlocal & set "_actman=1"       & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==8  cls & setlocal & set "_actappx=1"      & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==7  cls & setlocal & set "_actoffhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==6  cls & setlocal & set "_actwinhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==5  cls & setlocal & set "_actwinesuoff=1" & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==4  cls & setlocal & set "_actprojvis=1"   & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==3  cls & setlocal & set "_actoff=1"       & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==2  cls & setlocal & set "_actesu=1"       & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==12 exit /b
+if !_el!==11 start %mas%genuine-installation-media & goto :ts_menu
+if !_el!==10 call :ts_remove & cls & goto :ts_menu
+if !_el!==9 goto :ts_changemethod
+if !_el!==8 cls & setlocal & set "_resall=1"       & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==7  cls & setlocal & set "_actman=1"       & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==6  cls & setlocal & set "_actappx=1"      & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==5  cls & setlocal & set "_actoffhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==4  cls & setlocal & set "_actwinhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==3  cls & setlocal & set "_actwinesuoff=1" & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==2  cls & setlocal & set "_actoff=1"       & call :ts_start & endlocal & cls & goto :ts_menu
 if !_el!==1  cls & setlocal & set "_actwin=1"       & call :ts_start & endlocal & cls & goto :ts_menu
 goto :ts_menu
 )
@@ -4479,7 +4475,7 @@ mode 125, %height%
 if exist "%SysPath%\spp\store_test\" mode 134, %height%
 %psc% "&{$W=$Host.UI.RawUI.WindowSize;$B=$Host.UI.RawUI.BufferSize;$W.Height=%height%;$B.Height=300;$Host.UI.RawUI.WindowSize=$W;$Host.UI.RawUI.BufferSize=$B;}" %nul%
 )
-title  TSforge Activation %masver%
+title  Lifetime License Activation %masver%
 
 echo:
 echo Initializing...
@@ -4651,7 +4647,7 @@ if !UBR! LSS 4188 (set dontcheckact=1)
 
 if not defined dontcheckact call :ts_checkwinperm
 if defined _perm (
-call :dk_color %Gray% "Checking OS Activation                  [Windows is already permanently activated]"
+call :dk_color %Gray% "Checking OS Activation                  [Lifetime License for Windows Operating System is  activated]"
 goto :ts_esu
 )
 
@@ -12243,7 +12239,7 @@ echo:
 echo Processing Windows...
 call :dk_checkperm
 if defined _perm (
-call :dk_color %Gray% "Checking OS Activation                  [Windows is already permanently activated]"
+call :dk_color %Gray% "Checking OS Activation                  [Lifetime License for Windows Operating System is  activated]"
 goto :ks_office
 )
 
@@ -15146,7 +15142,7 @@ function GetResult($strSLP, $strApp, $entry)
 		$LicenseInf = "Licensed"
 		if ($gprMnt -EQ 0) {
 			$LicenseMsg = $null
-			$ExpireMsg = "The $prmnt is permanently activated."
+			$ExpireMsg = "Lifetime License for Microsoft Office $prmnt is  activated."
 		} else {
 			$LicenseMsg = "$actTag activation expiration: $gprMnt minute(s) ($gprDay day(s))"
 			if ($inGrace) {$ExpireMsg = "$actTag activation will expire $_xpr"}
@@ -16216,7 +16212,7 @@ goto :rebuildspptok
 )
 
 %psc% "(([WMISEARCHER]'SELECT Name FROM SoftwareLicensingProduct WHERE LicenseStatus=1 AND GracePeriodRemaining=0 AND PartialProductKey IS NOT NULL AND LicenseDependsOn is NULL').Get()).Name" %nul2% | findstr /i "Windows" %nul1% && (
-echo Windows is permanently activated.
+echo Lifetime License for Windows Operating System is  activated.
 echo Skipping...
 goto :rebuildspptok
 )
