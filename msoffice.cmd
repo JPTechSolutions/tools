@@ -118,7 +118,7 @@ exit /b
 
 cls
 color 07
-title  Microsoft_Activation_Scripts %masver%
+title  JP Tech Solutions %masver%
 
 set _args=
 set _elev=
@@ -372,11 +372,11 @@ if not "%%C"=="" set old=
 if defined old (
 echo ________________________________________________
 %eline%
-echo Your version of MAS [%masver%] is outdated.
+echo Your version of Activator [%masver%] is outdated.
 echo ________________________________________________
 echo:
 if not %_unattended%==1 (
-echo [1] Get Latest MAS
+echo [1] Contact JP Tect Solutions
 echo [0] Continue Anyway
 echo:
 call :dk_color %_Green% "Choose a menu option using your keyboard [1,0] :"
@@ -427,7 +427,7 @@ goto dk_done
 
 cls
 color 07
-title  Microsoft %blank%Activation %blank%Scripts %masver%
+title  JP %blank%Tech %blank%Solutions %blank% Microsoft %blank%Office %blank%& %blank%OS %blank%Activator %masver%
 if not defined terminal mode 76, 34
 
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" set _serexist=1
@@ -455,58 +455,46 @@ echo:
 echo:
 echo:
 if %winbuild% GEQ 10240 if %winbuild% LEQ 19045 if not defined _serexist if not defined _evalexist if not defined _ltscexist (
-call :dk_color2 %_Green% "       Tip:" %_White% " To activate ESU updates after W10 EOL, use TSforge option."
-)
+call :dk_color2 %_Green% "      )
 echo:
 echo:
 echo:       ______________________________________________________________
 echo:
-echo:                 Activation Methods:
+echo:                JP Tech Solutions License Station
 echo:
-if defined _hwidgo (
-call :dk_color3 %_White% "             [1] " %_Green% "HWID" %_White% "                - Windows"
-) else (
-echo:             [1] HWID                - Windows
-)
-if defined _ohookgo (
-call :dk_color3 %_White% "             [2] " %_Green% "Ohook" %_White% "               - Office"
-) else (
-echo:             [2] Ohook               - Office
-)
 if defined _tsforgego (
-call :dk_color3 %_White% "             [3] " %_Green% "TSforge" %_White% "             - Windows / Office / ESU"
+call :dk_color3 %_White% "             [1] " %_Green% "Lifetime License" %_White% "             - Windows / Office "
 ) else (
-echo:             [3] TSforge             - Windows / Office / ESU
+echo:             [1]Lifetime License             - Windows / Office
 )
-echo:             [4] Online KMS          - Windows / Office
+echo:             [2]Subcription Based License          - Windows / Office
 echo:             __________________________________________________ 
 echo:
-echo:             [5] Check Activation Status
-echo:             [6] Change Windows Edition
-echo:             [7] Change Office Edition
+echo:             [3]Check Activation Status
+echo:             [4]Change Windows Edition
+echo:             [5]Change Office Edition
 echo:             __________________________________________________      
 echo:
-echo:             [8] Troubleshoot
+echo:             [6]Troubleshoot
 echo:             [E] Extras
 echo:             [H] Help
 echo:             [0] Exit
 echo:       ______________________________________________________________
 echo:
 call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1,2,3...E,H,0] :"
-choice /C:12345678EH0 /N
+choice /C:123456EH0 /N
 set _erl=%errorlevel%
 
-if %_erl%==11 exit /b
-if %_erl%==10 (start %selfgit% & start %github% & start %mas%troubleshoot & goto :MainMenu)
-if %_erl%==9 goto :Extras
-if %_erl%==8 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
-if %_erl%==7 setlocal & call :change_offedition & cls & endlocal & goto :MainMenu
-if %_erl%==6 setlocal & call :change_winedition & cls & endlocal & goto :MainMenu
-if %_erl%==5 setlocal & call :check_actstatus   & cls & endlocal & goto :MainMenu
-if %_erl%==4 setlocal & call :KMSActivation     & cls & endlocal & goto :MainMenu
-if %_erl%==3 setlocal & call :TSforgeActivation & cls & endlocal & goto :MainMenu
-if %_erl%==2 setlocal & call :OhookActivation   & cls & endlocal & goto :MainMenu
-if %_erl%==1 setlocal & call :HWIDActivation    & cls & endlocal & goto :MainMenu
+if %_erl%==9 exit /b
+if %_erl%==8 (start %selfgit% & start %github% & start %mas%troubleshoot & goto :MainMenu)
+if %_erl%==7 goto :Extras
+if %_erl%==6 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
+if %_erl%==5 setlocal & call :change_offedition & cls & endlocal & goto :MainMenu
+if %_erl%==4 setlocal & call :change_winedition & cls & endlocal & goto :MainMenu
+if %_erl%==3 setlocal & call :check_actstatus   & cls & endlocal & goto :MainMenu
+if %_erl%==2 setlocal & call :KMSActivation     & cls & endlocal & goto :MainMenu
+if %_erl%==1 setlocal & call :TSforgeActivation & cls & endlocal & goto :MainMenu
+
 goto :MainMenu
 
 :dk_color3
@@ -4323,7 +4311,7 @@ set "_debug=0"
 cls
 color 07
 set KS=K%blank%MS
-title  TSforge Activation %masver%
+title  Lifetime License by JP Tech Solutions %masver%
 
 set _args=
 set _elev=
@@ -4371,18 +4359,16 @@ goto dk_done
 if %_unattended%==0 (
 cls
 if not defined terminal mode 76, 33
-title  TSforge Activation %masver%
+title  Lifetime License by JP Tech Solutions %masver%
 
 echo:
 echo:
 echo:
 echo        ______________________________________________________________
 echo: 
-echo               [1] Activate - Windows
-echo               [2] Activate - ESU
-echo               [3] Activate - Office [All]
-echo               [4] Activate - Office [Project/Visio]
-echo               [5] Activate - All
+echo               [1] Activate Lifetime License - Windows              
+echo               [2] Activate Lifetime License - Office [All]         
+echo               [3] Activate Lifetime License - Both Windows & Microsoft Office
 echo               _______________________________________________  
 echo: 
 echo                   Advanced Options:
@@ -4405,22 +4391,20 @@ echo               [0] %_exitmsg%
 echo        ______________________________________________________________
 echo:
 call :dk_color2 %_White% "            " %_Green% "Choose a menu option using your keyboard..."
-choice /C:12345ABCDEF670 /N
+choice /C:123ABCDEF670 /N
 set _el=!errorlevel!
 
-if !_el!==14 exit /b
-if !_el!==13 start %mas%genuine-installation-media & goto :ts_menu
-if !_el!==12 call :ts_remove & cls & goto :ts_menu
-if !_el!==11 goto :ts_changemethod
-if !_el!==10 cls & setlocal & set "_resall=1"       & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==9  cls & setlocal & set "_actman=1"       & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==8  cls & setlocal & set "_actappx=1"      & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==7  cls & setlocal & set "_actoffhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==6  cls & setlocal & set "_actwinhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==5  cls & setlocal & set "_actwinesuoff=1" & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==4  cls & setlocal & set "_actprojvis=1"   & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==3  cls & setlocal & set "_actoff=1"       & call :ts_start & endlocal & cls & goto :ts_menu
-if !_el!==2  cls & setlocal & set "_actesu=1"       & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==12 exit /b
+if !_el!==11 start %mas%genuine-installation-media & goto :ts_menu
+if !_el!==10 call :ts_remove & cls & goto :ts_menu
+if !_el!==9 goto :ts_changemethod
+if !_el!==8 cls & setlocal & set "_resall=1"       & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==7  cls & setlocal & set "_actman=1"       & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==6  cls & setlocal & set "_actappx=1"      & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==5  cls & setlocal & set "_actoffhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==4  cls & setlocal & set "_actwinhost=1"   & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==3  cls & setlocal & set "_actwinesuoff=1" & call :ts_start & endlocal & cls & goto :ts_menu
+if !_el!==2  cls & setlocal & set "_actoff=1"       & call :ts_start & endlocal & cls & goto :ts_menu
 if !_el!==1  cls & setlocal & set "_actwin=1"       & call :ts_start & endlocal & cls & goto :ts_menu
 goto :ts_menu
 )
@@ -4489,7 +4473,7 @@ mode 125, %height%
 if exist "%SysPath%\spp\store_test\" mode 134, %height%
 %psc% "&{$W=$Host.UI.RawUI.WindowSize;$B=$Host.UI.RawUI.BufferSize;$W.Height=%height%;$B.Height=300;$Host.UI.RawUI.WindowSize=$W;$Host.UI.RawUI.BufferSize=$B;}" %nul%
 )
-title  TSforge Activation %masver%
+title  Lifetime License by JP Tech Solutions %masver%
 
 echo:
 echo Initializing...
